@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -20,11 +21,14 @@ header {
   position: relative;
   background-image: url(https://images.unsplash.com/photo-1489875347897-49f64b51c1f8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80);
 }
-
+header a {
+  color: white;
+}
 header h1 {
   font-size: 70px;
   margin-top: 0;
   margin-bottom: 15px;
+  letter-spacing: 1px;
 }
 
 header p {
@@ -39,9 +43,17 @@ footer {
   text-align: center;
 }
 
-footer .fa-heart {
+footer .fa-praying-hands {
   /*coloring the heart */
-  color: red;
+  color: #c68642;
+}
+
+footer .fa-smile-beam {
+  color: #b68b5d;
+}
+
+footer {
+  letter-spacing: 2px;
 }
 
 nav {
@@ -97,7 +109,27 @@ nav a {
   text-decoration: none;
   font-size: 24px;
   text-decoration: none;
+  position: relative;
 }
+/* adding effects to nav */
+nav a::after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  transform: scale(0);
+  transform-origin: right;
+  transition: transform 250ms ease-in;
+}
+
+nav a:hover::after {
+  transform: scale(1);
+  transform-origin: left;
+}
+/* effect ends here */
 
 .project_container {
   display: grid;
@@ -110,7 +142,9 @@ nav a {
 
 .project-tile img {
   max-width: 100%;
-  padding: 0 20px 20px;
+  padding: 20px 20px 20px;
+  border: none;
+  border-radius: 27px;
 }
 
 .project-tile {
@@ -118,15 +152,47 @@ nav a {
   max-width: 245px;
   text-decoration: none;
 }
-
-.project-tile p {
-  color: #000;
-  font-size: 20px;
-  margin-top: 10px;
+/* adding effects to Project button */
+.proj-btn {
+  font-family: "Signika Negative", sans-serif;
+  font-size: 1rem;
+  align-items: center;
+  width: 200px;
+  height: 40px;
+  border: none;
+  color: white;
+  background-color: black;
+  border-radius: 5px;
+  box-shadow: inset 0 0 0 0 white;
+  transition: ease-out 0.3s;
+  outline: none;
 }
 
-@media (max-width: 440px) {
+.proj-btn:hover {
+  box-shadow: inset 200px 0 0 0 white;
+  cursor: pointer;
+  color: black;
+  transform-origin: left;
+}
+/* effect ends here */
+
+@media (max-width: 500px) {
   section {
     padding: 20px;
+  }
+}
+@media (max-width: 500px) {
+  header {
+    padding: 50px;
+  }
+}
+
+@media (max-width: 500px) {
+  nav {
+    display: flex;
+    justify-content: center;
+  }
+  html {
+    scroll-padding: 25px;
   }
 }
