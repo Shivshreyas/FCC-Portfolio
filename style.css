@@ -22,8 +22,23 @@ header {
   background-image: url(images/bg\ edited.jpg);
 }
 header a {
-  color: white;
-  font-size: 27px;
+  font-size: 30px;
+  text-decoration: none;
+  overflow: hidden;
+  background: linear-gradient(90deg, #000, #fff, #000);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 3s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@keyframes animate {
+  0% {
+    background-position: -500%;
+  }
+  100% {
+    background-position: 500%;
+  }
 }
 header h1 {
   font-size: 40px;
@@ -160,7 +175,6 @@ nav a:hover::after {
   font-weight: 600;
   font-size: 16px;
   align-items: center;
-  line-spacing: 1px;
   width: 150px;
   height: 30px;
   border: none;
